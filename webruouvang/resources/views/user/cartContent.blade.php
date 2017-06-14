@@ -3,6 +3,7 @@
     {{ Html::script('js/user/cartcontent.js') }}
 @endpush
 @section('content')
+    {{--{{ dd((int)str_replace(',', '',$subTotal)) }}--}}
     <section class="main-container col1-layout">
         <div class="main container">
             <div class="col-main">
@@ -161,13 +162,20 @@
                                 </table>
                                 <ul class="checkout">
                                     <li>
-                                        <button class="button btn-proceed-checkout" title="Proceed to Checkout" type="button"><span>Proceed to Checkout</span></button>
+
+                                            {{--{!! Form::open(['action' => ['User\PaymentController@store']]) !!}
+                                            {!! Form::hidden('amount', (int)str_replace(',', '',$subTotal)) !!}--}}
+
+                                            {!! Form::open(['action' => ['BillController@submit_payment']]) !!}
+                                            <button class="button btn-proceed-checkout" title="Proceed to Checkout" type="submit">
+                                                <span>Proceed to Checkout</span>
+                                            </button>
+                                            {!! Form::close() !!}
+
                                     </li>
                                     <br>
                                     <li>
-                                        {!! Form::open(['action' => ['http://sandbox.nganluong.vn:8088/nl30/checkout.php', ]]) !!}
                                         <a title="Checkout with Multiple Addresses" href="multiple_addresses.html">Checkout with Multiple Addresses</a>
-                                        {!! Form::close() !!}
                                     </li>
                                     <br>
                                 </ul>
