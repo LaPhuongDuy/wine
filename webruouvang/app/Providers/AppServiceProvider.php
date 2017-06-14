@@ -7,7 +7,7 @@ use App\Models\District;
 use App\Models\Product;
 use App\Models\Province;
 use App\Models\Ward;
-use Gloudemans\Shoppingcart\Facades\Cart;
+use Cart;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
@@ -37,11 +37,15 @@ class AppServiceProvider extends ServiceProvider
         // $provinces = Province::all()->pluck('name', 'id');
         // View::share('provinces', $provinces);
 
+
         // $districts = District::where('province_id', 01)->pluck('name', 'id');
         // View::share('districts', $districts);
 
         // $wards = Ward::where('district_id', 001)->pluck('name', 'id');
         // View::share('wards', $wards);
+
+        //dd(Cart::content());
+
     }
 
     /**
