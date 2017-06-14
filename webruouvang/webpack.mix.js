@@ -52,7 +52,7 @@ mix.scripts([
  * All user assets tasks
  */
 
-/** mix.styles([
+ mix.styles([
     USER_PATH + 'css/bootstrap.min.css',
     USER_PATH + 'css/style.css',
     USER_PATH + 'css/revslider.css',
@@ -61,15 +61,13 @@ mix.scripts([
     USER_PATH + 'css/font-awesome.css',
     'resources/assets/bowers/sweetalert/dist/sweetalert.css'], 'public/css/user.min.css' );
 
+// mix.scripts([
+//     USER_PATH + 'js/jquery.min.js',
+//     USER_PATH + 'js/bootstrap.min.js',
+//     USER_PATH + 'js/common.js',
+//     USER_PATH + 'js/revslider.js',
+//     USER_PATH + 'js/owl.carousel.min.js',
+//     USER_PATH + 'js/cloudzoom.js',
+//     'resources/assets/bowers/sweetalert/dist/sweetalert.min.js'], 'public/js/user.min.js');
 
-mix.scripts([
-    USER_PATH + 'js/jquery.min.js',
-    USER_PATH + 'js/bootstrap.min.js',
-    USER_PATH + 'js/common.js',
-    USER_PATH + 'js/revslider.js',
-    USER_PATH + 'js/owl.carousel.min.js',
-    USER_PATH + 'js/cloudzoom.js',
-    'resources/assets/bowers/sweetalert/dist/sweetalert.min.js'], 'public/js/user.min.js');
- **/
-
-mix.copy(USER_PATH + 'images', 'public/images');
+// mix.copy(USER_PATH + 'images', 'public/images');

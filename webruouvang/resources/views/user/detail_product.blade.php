@@ -11,7 +11,6 @@
                 <div class="row">
                     <div class="product-view wow">
                         <div class="product-essential">
-
                             <div class="product-img-box col-lg-6 col-sm-6 col-xs-12">
                                 <ul class="moreview" id="moreview">
                                     <li class="moreview_thumb thumb_1 moreview_thumb_active">
@@ -136,7 +135,8 @@
                                     {!! Form::close() !!}
                                     <div class="email-addto-box">
                                         <ul class="add-to-links">
-                                            <li> <a class="link-wishlist" href="#"><span>{{ trans('user/label.add_wishlist') }}</span></a></li>
+                                            <li><a href="javascript:void(0)" data-product-id="{{ $product->id }}" data-user-id="{{ Auth::id() }}" data-route-store="{{ route('wishlists.store') }}" data-route-destroy="{{ route('wishlists.destroy', $product->id ) }}" title="Add to Wishlist" class="{{ count($product->checkWishList(Auth::id()))?" wishlist":"" }} link-wishlist add-wishlist"><span>{{ trans('user/label.add_wishlist') }}</span></a>
+                                            </li>
                                             <li><span class="separator">|</span> <a class="link-compare" href="#"><span>{{ trans('user/label.add_compare') }}</span></a></li>
                                         </ul>
                                         <p class="email-friend"><a href="#" class=""><span>{{ trans('user/label.email_to_friend') }}</span></a></p>
@@ -164,51 +164,7 @@
                                             <div class="box-collateral box-reviews" id="customer-reviews">
                                                 <div class="box-reviews2">
                                                     <h3>{{ trans('user/label.customer_reviews') }}</h3>
-                                                    <div class="box visible">
-                                                        <ul>
-                                                            @foreach($comments as $item)
-                                                                <li>
-                                                                    <table class="ratings-table">
-                                                                        <colgroup>
-                                                                            <col width="1">
-                                                                            <col>
-                                                                        </colgroup>
-                                                                        <tbody>
-                                                                        <tr>
-                                                                            <td>
-                                                                                <div class="profile_pic">
-                                                                                    <img src="{{ url('images/user/user.png') }}" alt="..." class="img-circle" style="width: 40%; margin-left: 30%">
-                                                                                </div>
-                                                                            </td>
-                                                                        </tr>
-                                                                        </tbody>
-                                                                    </table>
-                                                                    <div class="review">
-                                                                        <h6><a href="#/catalog/product/view/id/61/">Excellent</a></h6>
-                                                                        <small>Review by <span>Leslie Prichard </span>on 1/3/2014 </small>
-                                                                        <div class="review-txt"> I have purchased shirts from Minimalism a few times and am never disappointed. The quality is excellent and the shipping is amazing. It seems like it's at your front door the minute you get off your pc. I have received my purchases within two days - amazing.</div>
-                                                                    </div>
-                                                                </li>
-                                                            @endforeach
-                                                        </ul>
-                                                    </div>
-
-                                                    {!! Form::open(['action' => ['User\CommentController@store']]) !!}
-                                                    {!! Form::hidden('product_id', $product->id) !!}
-                                                    {!! Form::hidden('user_id', Auth::id()) !!}
-                                                    <ul>
-                                                        <li>
-                                                            <label class="required label-wide" for="review_field">Review<em>*</em></label>
-                                                            <div class="input-box">
-                                                                <textarea class="required-entry" rows="3" cols="5" id="review_field" name="conten"></textarea>
-                                                            </div>
-                                                        </li>
-                                                    </ul>
-                                                    <div class="buttons-set">
-                                                        <button class="button submit" title="Submit Review" type="submit"><span>{{ trans('user/label.submit_comment') }}</span></button>
-                                                    </div>
-                                                    {!! Form::close() !!}
-
+                                                    <comments product_id="{{ $product->id }}" comments_url="{{ route('comments.show',$product->id) }}" product_url="{{ route('comments.store') }}"></comments>
                                                 </div>
                                                 <div class="clear"></div>
                                             </div>
@@ -325,7 +281,8 @@
                                                                             <button type="button" title="Add to Cart" class="button btn-cart"><span>Add to Cart</span></button>
                                                                             {!! Form::close() !!}
                                                                             <ul class="add-to-links">
-                                                                                <li><a href="wishlist.html" title="Add to Wishlist" class="link-wishlist"><span>{{ trans('user/label.add_wishlist') }}</span></a></li>
+                                                                                <li><a href="javascript:void(0)" data-product-id="{{ $item->id }}" data-user-id="{{ Auth::id() }}" data-route-store="{{ route('wishlists.store') }}" data-route-destroy="{{ route('wishlists.destroy', $item->id ) }}" title="Add to Wishlist" class="{{ count($item->checkWishList(Auth::id()))?" wishlist":"" }} link-wishlist add-wishlist"><span>{{ trans('user/label.add_wishlist') }}</span></a>
+                                                                                </li>
                                                                                 <li><a href="compare.html" title="Add to Compare" class="link-compare "><span>{{ trans('user/label.add_compare') }}</span></a></li>
                                                                             </ul>
                                                                         </div>
@@ -389,7 +346,8 @@
                                                                             <button type="button" title="Add to Cart" class="button btn-cart"><span>Add to Cart</span></button>
                                                                             {!! Form::close() !!}
                                                                             <ul class="add-to-links">
-                                                                                <li><a href="wishlist.html" title="Add to Wishlist" class="link-wishlist"><span>{{ trans('user/label.add_wishlist') }}</span></a></li>
+                                                                                <li><a href="javascript:void(0)" data-product-id="{{ $item->id }}" data-user-id="{{ Auth::id() }}" data-route-store="{{ route('wishlists.store') }}" data-route-destroy="{{ route('wishlists.destroy', $item->id ) }}" title="Add to Wishlist" class="{{ count($item->checkWishList(Auth::id()))?" wishlist":"" }} link-wishlist add-wishlist"><span>{{ trans('user/label.add_wishlist') }}</span></a>
+                                                                                </li>
                                                                                 <li><a href="compare.html" title="Add to Compare" class="link-compare "><span>{{ trans('user/label.add_compare') }}</span></a></li>
                                                                             </ul>
                                                                         </div>

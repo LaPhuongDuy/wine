@@ -46,7 +46,7 @@
                 'class' => 'form-control show-modal',
             ]) }}
             <span class="help-block">{{ $errors->first('url') }}</span>
-            <img id="previewImage_url" style="{{ isset($product)?"":"display: none;" }} width: 100px; height: 100px;" src="{{ isset($product)?$product->url:"" }}" />
+            <img id="previewImage_url" style="{{ isset($product)?"":"display: none;" }} width: 100px; height: 100px;" src="{{ isset($product)? url($product->url):"" }}" />
         </div>
     </div>
     <div class="x_panel x_panel_image">
@@ -62,7 +62,7 @@
         @php
             $i = 0;
         @endphp
-        @foreach(isset($pictures) ? $pictures : ['1'] as $picture)
+        @foreach(count($pictures->all()) != 0 ? $pictures : ['1'] as $picture)
         @php
             $i++;
         @endphp
@@ -72,20 +72,20 @@
                 </label>
                 <div class="col-md-8">
                     <div class="input-group">
-                        {{ Form::text('images[]', isset($pictures) ? $picture->url : null, [
+                        {{ Form::text('images[]', !empty($pictures->all()) ? url('/'.$picture->url) : null, [
                             'id' => 'image_' . $i,
                             'class' => 'form-control show-modal',
                         ]) }}
                         <span class="input-group-btn">
                             <button class="btn 
-                            @if(!isset($pictures) || $i == count($pictures)) 
+                            @if(empty($pictures->all()) || $i == count($pictures)) 
                             btn-success btn-add
                             @else
                              btn-remove btn-danger
                             @endif
                             " type="button">
                                 <span class="glyphicon 
-                                @if(!isset($pictures) || $i == count($pictures)) 
+                                @if(empty($pictures->all()) || $i == count($pictures)) 
                                 glyphicon-plus
                                 @else
                                 glyphicon-minus
@@ -94,7 +94,7 @@
                             </button>
                         </span>
                     </div>
-                    <img id="previewImage_image_{{ $i }}" style="{{ isset($pictures)?"":"display: none;" }} width: 100px; height: 100px;" src="{{ isset($pictures) ? $picture->url : "" }}" />
+                    <img id="previewImage_image_{{ $i }}" style="{{ !empty($pictures->all())?"":"display: none;" }} width: 100px; height: 100px;" src="{{ !empty($pictures->all()) ? url($picture->url) : "" }}" />
                 </div>
             </div> 
         @endforeach 
@@ -107,10 +107,10 @@
         </label>
         <div class="col-md-8">
             {{ Form::textarea('description', null, [
-                'id' => 'description',
+                'id' => 'description_product',
                 'class' => 'form-control',
                 'placeholder' => trans('admin/label.description'),
-                'rows' => 4,
+                'rows' => 6,
             ]) }}
             <span class="help-block">{{ $errors->first('description') }}</span>
         </div>

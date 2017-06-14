@@ -44,8 +44,7 @@
                                                             </button>
                                                             {!! Form::close() !!}
                                                             <ul class="add-to-links">
-                                                                <li><a href="javascript:void(0)" data-product-id="{{ $item->id }}" data-user-id="{{ Auth::id() }}" data-route-store="{{ route('wishlists.store') }}" data-route-destroy="{{ route('wishlists.destroy', $item->id ) }}" title="Add to Wishlist"
-                                                                       class="{{ count($item->checkWishList(Auth::id()))?" wishlist":"" }} link-wishlist add-wishlist"><span>{{ trans('user/label.add_wishlist') }}</span></a>
+                                                                <li><a href="javascript:void(0)" data-product-id="{{ $item->id }}" data-user-id="{{ Auth::id() }}" data-route-store="{{ route('wishlists.store') }}" data-route-destroy="{{ route('wishlists.destroy', $item->id ) }}" title="Add to Wishlist" class="{{ count($item->checkWishList(Auth::id()))?" wishlist":"" }} link-wishlist add-wishlist"><span>{{ trans('user/label.add_wishlist') }}</span></a>
                                                                 </li>
                                                                 <li><a href="compare.html" title="Add to Compare"
                                                                        class="link-compare "><span>{{ trans('user/label.add_compare') }}</span></a>

@@ -38,11 +38,6 @@
                     </div>
                     <!-- category banner -->
                     <div class="category-products">
-                        <div class="toolbar">
-                            <div class="col-md-3 col-md-offset-5">
-                                {{ $products->links() }}
-                            </div>
-                        </div>
                         @include('user.layouts.section.app_blockCategoryProduct')
                     </div>
                 </section>
@@ -53,6 +48,22 @@
                         <!-- BEGIN BOX-CATEGORY -->
                         @include('user.layouts.section.app_blockCategories')
                         <!--box-content box-category-->
+                    </div>
+                    <div class="block block-layered-nav">
+                        <div class="block-title"><span>{{ trans('user/label.shop_by') }}</span></div>
+                        <div class="block-content">
+                            <p class="block-subtitle">{{ trans('user/label.shopping_options') }}</p>
+                            <dl id="narrow-by-list">
+                                <dt class="odd">{{ trans('user/label.price') }}</dt>
+                                <dd class="odd">
+                                    <ol>
+                                    @for($i = 0; $i < count(config('common.priceFilter')); $i++)
+                                        <li> <a id="{{ $i }}" class="price" onclick="filter(this.id)" data-category="{{ $category->id }}" data-price-low="{{ config('common.priceFilter.'.$i.'.low.title') }}" data-price-high="{{ config('common.priceFilter.'.$i.'.high.title') }}" class="filter-price" href="javascript:void(0)"><span>{{ config('common.priceFilter.'.$i.'.low.title') }}</span><span class="price">{{ config('common.priceFilter.'.$i.'.high.title') }}</span></a> </li> 
+                                    @endfor
+                                    </ol>
+                                </dd>
+                            </dl>
+                        </div>
                     </div>
                     @if($category->parent_id == Null)
                         @include('user.layouts.section.app_shopby')

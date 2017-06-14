@@ -97,6 +97,7 @@
     <div class="modal-dialog modal-lg modalStyle" role="document" id="iframex">
     </div>
 </div>
+<script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
 {{ Html::script(mix('js/admin.min.js')) }}
 @stack('scripts')
 </body>

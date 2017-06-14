@@ -80,8 +80,7 @@ class Product extends Model
 
     public function getPriceSaleAttribute($value)
     {
-        if($value !== NULL)
-        {
+        if ($value !== null) {
             return '$' . $value . '.00';
         }
 
@@ -137,5 +136,15 @@ class Product extends Model
     public function checkWishList($user_id)
     {
         return $this->wishlists()->where('user_id', '=', $user_id)->get();
+    }
+
+    public function scopeFilterLow($query, $priceLow)
+    {
+        return $query->where('price', '>', $priceLow);
+    }
+
+    public function scopeFilterHigh($query, $priceHigh)
+    {
+        return $query->where('price', '<', $priceHigh);
     }
 }
