@@ -15,6 +15,7 @@ Route::group([
     'as' => 'admin.',
     'prefix' => 'admin',
     'namespace' => 'Admin',
+    'middleware' => ['admin', 'auth']
 ], function () {
     Route::get('/', function () {
         return view('admin.index');
@@ -23,12 +24,13 @@ Route::group([
     Route::resource('brands', 'BrandsController', ['except' => 'show']);
     Route::resource('products', 'ProductsController', ['except' => 'show']);
     Route::resource('users', 'UsersController', ['except' => 'show']);
-    Route::resource('posts', 'PostsController');
+    // Route::resource('posts', 'PostsController');
 });
 
 Auth::routes();
 
 Route::resource('/home', 'User\HomeController');
+Route::post('/filter', 'User\CategoryController@filter');
 Route::resource('/product', 'User\ProductController');
 Route::resource('/rating', 'User\RatingController');
 Route::resource('/category', 'User\CategoryController');
@@ -39,8 +41,7 @@ Route::resource('/compare', 'User\CompareController');
 Route::post('/comment', 'User\CommentController@store');
 Route::resource('/comments', 'User\CommentsController');
 Route::post('/cart/destroy', 'User\CartController@destroy');
-Route::resource('/cart', 'User\CartController',  ['except' => ['destroy']]);
+Route::resource('/cart', 'User\CartController', ['except' => ['destroy']]);
 Route::resource('/search', 'User\SearchController');
 Route::resource('/profile', 'User\ProfileController');
 Route::resource('/wishlists', 'User\WishlistsController');
-

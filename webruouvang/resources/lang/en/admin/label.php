@@ -1,7 +1,7 @@
-<?php 
+<?php
 
 return [
-	/*
+    /*
     |--------------------------------------------------------------------------
     | Label theme
     |--------------------------------------------------------------------------
@@ -65,21 +65,21 @@ return [
     'can_not_find_any_records' => 'Can not find any records',
     'action' => 'Action',
 
-	/*
+    /*
     |--------------------------------------------------------------------------
     | Label form category
     |--------------------------------------------------------------------------
     */
-	'categories_index' => 'List Categories',
-	'category_name' => 'Category name',
-	'parent_category' => 'Parent category',
-	'url_category' => 'Category icon',
-	/*
+    'categories_index' => 'List Categories',
+    'category_name' => 'Category name',
+    'parent_category' => 'Parent category',
+    'url_category' => 'Category icon',
+    /*
     |--------------------------------------------------------------------------
     | Label create category
     |--------------------------------------------------------------------------
     */
-	'categories_create' => 'Create category',
+    'categories_create' => 'Create category',
     /*
     |--------------------------------------------------------------------------
     | Label edit category

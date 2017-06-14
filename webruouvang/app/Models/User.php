@@ -56,4 +56,14 @@ class User extends Authenticatable
     {
         return config('common.storage.user') . $value;
     }
+
+    public function scopeAdmin($query)
+    {
+        return $query->where('role', config('setup.user_types.1'));
+    }
+
+    public function isAdmin()
+    {
+        return $this->role == config('setup.user_types.1');
+    }
 }

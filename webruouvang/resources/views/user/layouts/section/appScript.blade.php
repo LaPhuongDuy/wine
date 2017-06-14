@@ -6,6 +6,7 @@
 {!! Html::script('js/user/revslider.js') !!}
 {!! Html::script('js/user/owl.carousel.min.js') !!}
 {!! Html::script('js/app.js') !!}
+{!! Html::script('js/user/filter.js') !!}
 {!! Html::script('js/user/search.js') !!}
 {!! Html::script('js/user/wishlist.js') !!}
 <script type='text/javascript'>

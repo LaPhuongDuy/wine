@@ -53,6 +53,9 @@ return [
     'clear' => 'Clear',
     'compare' => 'Compare',
     'compare_product' => 'Compare Products',
+    'shop_by' => 'Shop By',
+    'shopping_options' => 'Shopping Options',
+    'price' => 'Price',
 
     //Rating site
     'update_score' => 'Update score success!',

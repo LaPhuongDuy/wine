@@ -98,6 +98,7 @@ class ProductsController extends Controller
     {
         $product = Product::findOrFail($id);
         $pictures = $product->pictures;
+        
         $categories = Category::getRecursiveCategoriesOptions();
         $brands = Brand::pluck('name', 'id');
         // $product = $product->getOriginal();

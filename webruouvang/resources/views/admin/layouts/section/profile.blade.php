@@ -4,7 +4,7 @@
 	</div>
 	<div class="profile_info">
 		<span>{!! trans('admin/label.welcome') !!}</span>
-		<h2>{!! trans('admin/label.username') !!}</h2>
+		<h2>{!! Auth::user()->name !!}</h2>
 	</div>
 </div>
 

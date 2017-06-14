@@ -1,3 +1,8 @@
+<div class="toolbar">
+    <div class="col-md-3 col-md-offset-5">
+        {{ $products->links() }}
+    </div>
+</div>
 <ul class="products-grid">
     @foreach($products as $product)
         <li class="item col-lg-4 col-md-4 col-sm-6 col-xs-6">
@@ -10,7 +15,8 @@
                         <div class="actions-inner">
                             <button type="button" title="Add to Cart" class="button btn-cart"><span>{{ trans('user/label.add_cart') }}</span></button>
                             <ul class="add-to-links">
-                                <li><a href="wishlist.html" title="Add to Wishlist" class="link-wishlist"><span>{{ trans('user/label.add_wishlist') }}</span></a></li>
+                                <li><a href="javascript:void(0)" data-product-id="{{ $product->id }}" data-user-id="{{ Auth::id() }}" data-route-store="{{ route('wishlists.store') }}" data-route-destroy="{{ route('wishlists.destroy', $product->id ) }}" title="Add to Wishlist" class="{{ count($product->checkWishList(Auth::id()))?" wishlist":"" }} link-wishlist add-wishlist"><span>{{ trans('user/label.add_wishlist') }}</span></a>
+                                                                </li>
                                 <li><a title="Add to Compare" class="link-compare abc" data-productid="{{ $product->id }}"><span>{{ trans('user/label.add_compare') }}</span></a></li>
                             </ul>
                         </div>

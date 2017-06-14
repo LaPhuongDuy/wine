@@ -34,16 +34,14 @@ class AppServiceProvider extends ServiceProvider
         $brands = Brand::all();
         View::share('brands', $brands);
 
-        $provinces = Province::all()->pluck('name', 'id');
-        View::share('provinces', $provinces);
+        // $provinces = Province::all()->pluck('name', 'id');
+        // View::share('provinces', $provinces);
 
-        $districts = District::where('province_id', 01)->pluck('name', 'id');
-        View::share('districts', $districts);
+        // $districts = District::where('province_id', 01)->pluck('name', 'id');
+        // View::share('districts', $districts);
 
-        $wards = Ward::where('district_id', 001)->pluck('name', 'id');
-        View::share('wards', $wards);
-
-
+        // $wards = Ward::where('district_id', 001)->pluck('name', 'id');
+        // View::share('wards', $wards);
     }
 
     /**
